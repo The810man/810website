@@ -1,11 +1,18 @@
+# 810 Studios
 
-  # Company Website for 810 Studios
+Flutter homepage for 810 Studios: hero, about, services, an open-source
+project feed, platform links, and footer — with a background particle
+animation and terminal-style text effects.
 
-  This is a code bundle for Company Website for 810 Studios. The original project is available at https://www.figma.com/design/wsCqXe8ESPzDTxRnXxhaa9/Company-Website-for-810-Studios.
+## Running
 
-  ## Running the code
+```sh
+flutter pub get
+flutter run -d chrome
+```
 
-  Run `npm i` to install the dependencies.
+## Adding a project to the feed
 
-  Run `npm run dev` to start the development server.
-  
+Edit `assets/config/projects.json` and append an entry — no code changes
+needed. See the top-level `_schema` note in that file for the field list.
+Drop any accompanying image into `assets/images/projects/`.

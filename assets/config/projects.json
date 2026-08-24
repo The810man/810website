@@ -1,0 +1,73 @@
+{
+  "_schema": "Each entry needs: id, title, category (games|apps|hardware|cad), description, tags. Optional: repoUrl, imageAsset, year. Add a new object to the array below to publish it on the homepage — no code changes required.",
+  "projects": [
+    {
+      "id": "mqttnode-mini",
+      "title": "MQTTNode Mini",
+      "category": "cad",
+      "description": "Compact 3D-printed enclosure for an MQTT sensor node: display cutout, reset button and USB-C passthrough modeled from scratch.",
+      "tags": [
+        "3D Modeling",
+        "Enclosure Design",
+        "IoT"
+      ],
+      "imageAsset": "assets/images/projects/mqttnode_mini_cad.png",
+      "year": 2026
+    },
+    {
+      "id": "mechanical-menace",
+      "title": "Mechanical Menace",
+      "category": "games",
+      "description": " Relive the recording of a 'Fixer', a contractor hired to clean up artificial intelligence messes in the past.",
+      "tags": [
+        "Game",
+        "Horror",
+        "Storry"
+      ],
+      "repoUrl": "https://store.steampowered.com/app/4314730/Mechanical_Menace/",
+      "imageAsset": "assets/images/projects/mechanical_menace.png",
+      "year": 2027
+    },
+    {
+      "id": "voxel_vortex",
+      "title": "Voxel Vortex",
+      "category": "games",
+      "description": "Rush from boss to boss while getting upgrades and weapons.",
+      "tags": [
+        "Game",
+        "Indie",
+        "Boss-Rush"
+      ],
+      "imageAsset": "assets/images/projects/VoxelVortex.png",
+      "year": 2025,
+      "repoUrl": "https://810-studios.itch.io/voxel-vortex"
+    },
+    {
+      "id": "tui_core_builder",
+      "title": "TUI Builder",
+      "category": "apps",
+      "description": "Build an Terminal User Interfacem, with this toolkit.",
+      "tags": [
+        "web-app",
+        "terminal",
+        "web-ui"
+      ],
+      "year": 2026,
+      "repoUrl": "https://the810man.github.io/tui_core_builder/"
+    },
+    {
+      "id": "mqtt_browser",
+      "title": "MQTT Browser",
+      "category": "apps",
+      "description": "An browser like application to view all your MQTT-Data.",
+      "tags": [
+        "web-app",
+        "app",
+        "MQTT",
+        "native build"
+      ],
+      "year": 2025,
+      "repoUrl": "https://github.com/The810man/mqtt_browser"
+    }
+  ]
+}
