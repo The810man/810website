@@ -4,6 +4,8 @@ Flutter homepage for 810 Studios: hero, about, services, an open-source
 project feed, platform links, and footer — with a background particle
 animation and terminal-style text effects.
 
+If you like you can clone this project and make your own homepage out of this :D
+
 ## Running
 
 ```sh
