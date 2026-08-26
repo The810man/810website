@@ -67,6 +67,7 @@
         "native build"
       ],
       "year": 2025,
+      "imageAsset": "assets/images/projects/mqtt-browser.png",
       "repoUrl": "https://github.com/The810man/mqtt_browser"
     }
   ]
