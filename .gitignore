@@ -43,3 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Fonts: only commit fonts whose license allows redistribution (e.g. OFL).
+# Archive.otf (Fontfabric EULA) must stay out of this public repo; CI restores
+# it from the ARCHIVE_FONT_B64 secret. See README > Fonts.
+/assets/fonts/*
+!/assets/fonts/SairaSemiCondensed/

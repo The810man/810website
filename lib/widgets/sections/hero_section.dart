@@ -18,7 +18,8 @@ class HeroSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final titleSize = context.isMobile ? 56.0 : (context.isTablet ? 88.0 : 128.0);
+    final titleSize =
+        context.isMobile ? 56.0 : (context.isTablet ? 88.0 : 128.0);
 
     return SizedBox(
       height: context.screenHeight,
@@ -34,14 +35,16 @@ class HeroSection extends ConsumerWidget {
             child: _PulsingOrb(reversedPhase: true),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sectionPaddingH),
+            padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.sectionPaddingH),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 const RevealOnScroll(
                   child: Opacity(
                     opacity: 0.7,
-                    child: TypewriterText(text: _prompt, style: AppText.comment),
+                    child:
+                        TypewriterText(text: _prompt, style: AppText.comment),
                   ),
                 ),
                 const SizedBox(height: 32),
@@ -50,7 +53,9 @@ class HeroSection extends ConsumerWidget {
                   child: Text(
                     '810 Studios',
                     textAlign: TextAlign.center,
-                    style: AppText.headline.copyWith(fontSize: titleSize),
+                    style: AppText.headline.copyWith(
+                      fontSize: titleSize,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -97,8 +102,9 @@ class _PulsingOrb extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useAnimationController(duration: const Duration(seconds: 8))
-      ..repeat(reverse: true);
+    final controller =
+        useAnimationController(duration: const Duration(seconds: 8))
+          ..repeat(reverse: true);
     final scale = useAnimation(Tween<double>(
       begin: reversedPhase ? 1.2 : 1.0,
       end: reversedPhase ? 1.0 : 1.2,
@@ -130,15 +136,17 @@ class _ChevronBounce extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useAnimationController(duration: const Duration(seconds: 2))
-      ..repeat(reverse: true);
+    final controller =
+        useAnimationController(duration: const Duration(seconds: 2))
+          ..repeat(reverse: true);
     final offset = useAnimation(Tween<double>(begin: 0, end: 10).animate(
       CurvedAnimation(parent: controller, curve: Curves.easeInOut),
     ));
 
     return Transform.translate(
       offset: Offset(0, offset),
-      child: const Icon(LucideIcons.chevronDown, size: 32, color: AppColors.dim),
+      child:
+          const Icon(LucideIcons.chevronDown, size: 32, color: AppColors.dim),
     );
   }
 }

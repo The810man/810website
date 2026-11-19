@@ -18,10 +18,25 @@ class BackgroundAnimationWidget extends StatefulWidget {
 class _BackgroundAnimationWidgetState extends State<BackgroundAnimationWidget>
     with SingleTickerProviderStateMixin {
   static const _codeSnippets = [
-    '810', '{', '}', '<', '>', '[ ]', '( )', '...',
-    '==', '!=', '=>', 'fn', 'var', 'if', 'for', //
+    '810',
+    '{',
+    '}',
+    '<',
+    '>',
+    '[ ]',
+    '( )',
+    '...',
+    '==',
+    '!=',
+    '=>',
+    'fn',
+    'var',
+    'if',
+    'for',
+    'bar',
+    'foo'
   ];
-  static const _particleCount = 30;
+  static const _particleCount = 50;
   static const _linkDistance = 150.0;
 
   late final AnimationController _controller;
@@ -45,8 +60,10 @@ class _BackgroundAnimationWidgetState extends State<BackgroundAnimationWidget>
     final rand = Random();
     return List.generate(_particleCount, (_) {
       return _Particle(
-        position: Offset(rand.nextDouble() * size.width, rand.nextDouble() * size.height),
-        velocity: Offset((rand.nextDouble() - 0.5) * 0.3, (rand.nextDouble() - 0.5) * 0.3),
+        position: Offset(
+            rand.nextDouble() * size.width, rand.nextDouble() * size.height),
+        velocity: Offset(
+            (rand.nextDouble() - 0.5) * 0.3, (rand.nextDouble() - 0.5) * 0.3),
         text: _codeSnippets[rand.nextInt(_codeSnippets.length)],
         opacity: rand.nextDouble() * 0.3 + 0.1,
         fontSize: rand.nextDouble() * 10 + 12,
@@ -64,7 +81,7 @@ class _BackgroundAnimationWidgetState extends State<BackgroundAnimationWidget>
   Widget build(BuildContext context) {
     return IgnorePointer(
       child: Opacity(
-        opacity: 0.2,
+        opacity: 0.6,
         child: AnimatedBuilder(
           animation: _controller,
           builder: (context, _) {
@@ -139,7 +156,8 @@ class _ParticlePainter extends CustomPainter {
         if (distance < linkDistance) {
           final opacity = (1 - distance / linkDistance) * 0.15;
           linePaint.color = AppColors.foreground.withValues(alpha: opacity);
-          canvas.drawLine(particles[i].position, particles[j].position, linePaint);
+          canvas.drawLine(
+              particles[i].position, particles[j].position, linePaint);
         }
       }
     }

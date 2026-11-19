@@ -36,3 +36,17 @@ flutter:
     - assets/config/
     - assets/images/branding/
     - assets/images/projects/
+
+  fonts:
+    # Big titles. Fontfabric Free Font EULA: not redistributable, so the file
+    # is not in this repo (see README > Fonts).
+    - family: Archive
+      fonts:
+        - asset: assets/fonts/Archive.otf
+    # Everything else. SIL Open Font License 1.1.
+    - family: SairaSemiCondensed
+      fonts:
+        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-Regular.ttf
+        - asset: assets/fonts/SairaSemiCondensed/SairaSemiCondensed-Bold.ttf
+          weight: 700
+

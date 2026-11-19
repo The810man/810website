@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.background,
-        textTheme: ThemeData.dark().textTheme.apply(fontFamily: AppFonts.mono),
+        textTheme: ThemeData.dark().textTheme.apply(fontFamily: AppFonts.body),
       ),
       home: const HomePage(),
     );

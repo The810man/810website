@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 abstract final class AppColors {
   static const background = Colors.black;
   static const foreground = Colors.white;
-  static const dim = Color(0xB3FFFFFF); // white70-ish, matches Tailwind gray-300/400 feel
+  static const dim =
+      Color(0xB3FFFFFF); // white70-ish, matches Tailwind gray-300/400 feel
   static const muted = Color(0x99FFFFFF); // gray-400
   static const faint = Color(0x66FFFFFF); // gray-500/600 comment color
   static const hairline = Color(0x1AFFFFFF); // border-white/10
@@ -15,7 +16,17 @@ abstract final class AppColors {
 }
 
 abstract final class AppFonts {
-  static const mono = 'monospace';
+  /// Big titles only (hero + section headlines). Archive by Fontfabric:
+  /// uppercase-only, single weight. Its license requires the credit link in
+  /// the footer.
+  static const display = 'Archive';
+
+  /// All other text. Saira Semi Condensed, SIL Open Font License.
+  static const body = 'SairaSemiCondensed';
+
+  /// Terminal-style bits (comments, tags, ASCII frames). Same as [body] for
+  /// now; point it at a monospace family to bring back the terminal look.
+  static const mono = body;
 }
 
 abstract final class AppText {
@@ -28,7 +39,9 @@ abstract final class AppText {
   );
 
   static const headline = TextStyle(
-    fontWeight: FontWeight.w700,
+    fontFamily: AppFonts.display,
+    // Archive has a single weight; asking for bold would make Flutter fake it.
+    fontWeight: FontWeight.w400,
     color: AppColors.foreground,
     height: 1.05,
     letterSpacing: -1,

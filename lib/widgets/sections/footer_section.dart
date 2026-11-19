@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/link.dart';
 
 import '../../app/theme.dart';
 import '../../utils/responsive.dart';
@@ -46,12 +47,55 @@ class FooterSection extends StatelessWidget {
         decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: AppColors.hairline)),
         ),
-        child: context.isMobile
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [row.children[0], const SizedBox(height: 16), row.children[1]],
-              )
-            : row,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (context.isMobile) ...[
+              row.children[0],
+              const SizedBox(height: 16),
+              row.children[1],
+            ] else
+              row,
+            const SizedBox(height: 24),
+            const _FontCredit(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Required by the Fontfabric Free Font EULA for the Archive headline font:
+/// web use is only allowed with a link to fontfabric.com on the site.
+class _FontCredit extends StatelessWidget {
+  const _FontCredit();
+
+  @override
+  Widget build(BuildContext context) {
+    final style = AppText.comment.copyWith(fontSize: 12);
+    return Link(
+      uri: Uri.parse('https://www.fontfabric.com/'),
+      target: LinkTarget.blank,
+      builder: (context, followLink) => MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: followLink,
+          child: Text.rich(
+            TextSpan(
+              style: style,
+              children: [
+                const TextSpan(text: '// headline font: Archive by '),
+                TextSpan(
+                  text: 'Fontfabric',
+                  style: style.copyWith(
+                    decoration: TextDecoration.underline,
+                    decorationColor: AppColors.faint,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

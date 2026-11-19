@@ -28,6 +28,19 @@ jobs:
           channel: stable
           cache: true
 
+      # Archive.otf may not be redistributed (Fontfabric EULA), so it isn't in
+      # this public repo. It's stored base64-encoded in the ARCHIVE_FONT_B64
+      # repository secret and written back here before the build.
+      - name: Restore licensed fonts
+        env:
+          ARCHIVE_FONT_B64: ${{ secrets.ARCHIVE_FONT_B64 }}
+        run: |
+          if [ -z "$ARCHIVE_FONT_B64" ]; then
+            echo "::error::Repository secret ARCHIVE_FONT_B64 is missing (see README > Fonts)"
+            exit 1
+          fi
+          echo "$ARCHIVE_FONT_B64" | base64 -d > assets/fonts/Archive.otf
+
       - name: Install dependencies
         run: flutter pub get
 
